@@ -1,0 +1,315 @@
+{
+	"info": {
+		"_postman_id": "bc0fd3aa-6b7c-4a20-a91e-67719c4fab81",
+		"name": "stockmktSdk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Stock",
+			"item": [
+				{
+					"name": "List Stocks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stock/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stock",
+								"list"
+							]
+						},
+						"description": "Get Stock List"
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve details for a Stock",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stock/GIN",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stock",
+								"GIN"
+							]
+						},
+						"description": "Get Stock List"
+					},
+					"response": []
+				},
+				{
+					"name": "Add new Stock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"symbol\":\"TOM\",\r\n    \"type\":\"preferred\",\r\n    \"lastDividend\":\"0.0\",\r\n    \"fixedDividend\":\"0.0\",\r\n    \"parValue\":\"0.0\"\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stock"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update  Stock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"symbol\":\"GIN\",\r\n    \"type\":\"preferred\",\r\n    \"lastDividend\": 8.0,\r\n    \"fixedDividend\": 2.0,\r\n    \"parValue\": 100.0\r\n}"
+						},
+						"url": {
+							"raw": "localhost:8080/stock",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stock"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "STOCKVALUE",
+			"item": [
+				{
+					"name": "Calcuate DividendYield",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stockValue/GIN/dividendYield?price=100",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stockValue",
+								"GIN",
+								"dividendYield"
+							],
+							"query": [
+								{
+									"key": "price",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calcuate PeRatio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/stockValue/GIN/peRatio?price=100",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"stockValue",
+								"GIN",
+								"peRatio"
+							],
+							"query": [
+								{
+									"key": "price",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TRADE",
+			"item": [
+				{
+					"name": "Record Trade BUY",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/trade/BUY/GIN?price=10&quantity=100",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trade",
+								"BUY",
+								"GIN"
+							],
+							"query": [
+								{
+									"key": "price",
+									"value": "10"
+								},
+								{
+									"key": "quantity",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Record Trade SELL",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/trade/SELL/GIN?price=15&quantity=100",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trade",
+								"SELL",
+								"GIN"
+							],
+							"query": [
+								{
+									"key": "price",
+									"value": "15"
+								},
+								{
+									"key": "quantity",
+									"value": "100"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/trade/list",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trade",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List all trades in last n minutes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/trade/list?timeInMinutes=5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trade",
+								"list"
+							],
+							"query": [
+								{
+									"key": "timeInMinutes",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calcuate VolumeWeightedStockPrice",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/trade/VolumeWeightedStockPrice/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trade",
+								"VolumeWeightedStockPrice",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate GBCEShareIndex",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/trade/GBCEShareIndex",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"trade",
+								"GBCEShareIndex"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
